@@ -38,7 +38,20 @@ const RecipeContextProvider = (props)=>{
         axios.get("https://recipe-62gj.onrender.com/recipe",config).then((res)=>{
                 setmenu(res.data.recipies)
         })
-        console.log(menu);
+    }
+    const createrecipe=()=>{
+        const token = window.localStorage.getItem('token')
+        const config={
+            headers:{
+                authorization:token   
+            }
+        }
+        axios.post("https://recipe-62gj.onrender.com/recipe",recipe,config).then((res)=>{
+            if(res.status === 200){
+                alert("new recipe added");
+                navigate("/home")
+            }
+        })
     }
   return (
     <recipeContext.Provider value={{
@@ -50,7 +63,8 @@ const RecipeContextProvider = (props)=>{
       signup,
       menu,
       setRecipe,
-      recipe
+      recipe,
+      createrecipe
     }}>
     {props.children}
     </recipeContext.Provider>
