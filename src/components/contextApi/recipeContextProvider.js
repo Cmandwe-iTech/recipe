@@ -9,7 +9,7 @@ const RecipeContextProvider = (props)=>{
     const [recipe, setRecipe] = useState({title:"",author:"",file:"",ingredients:"",direction:""})
     const navigate = useNavigate()
     const login=()=>{
-        axios.post("http://localhost:8000/login",user).then((res)=>{
+        axios.post("https://recipe-62gj.onrender.com/login",user).then((res)=>{
             if(res.status === 200){
                 alert("login successfully");
                 window.localStorage.setItem("token",res.data.token);
@@ -19,7 +19,7 @@ const RecipeContextProvider = (props)=>{
         })
     }
     const signup=()=>{
-        axios.post("http://localhost:8000/register",user).then((res)=>{
+        axios.post("https://recipe-62gj.onrender.com/register",user).then((res)=>{
             if(res.status === 200){
                 alert("register Successfully")
                 navigate("/")
@@ -35,7 +35,7 @@ const RecipeContextProvider = (props)=>{
                 authorization:token
             }
         }
-        axios.get("http://localhost:8000/recipe",config).then((res)=>{
+        axios.get("https://recipe-62gj.onrender.com/recipe",config).then((res)=>{
                 setmenu(res.data.recipies)
         })
         console.log(menu);
