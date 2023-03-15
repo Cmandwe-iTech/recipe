@@ -7,6 +7,7 @@ const bodyparser = require("body-parser");
 rec_router.use(bodyparser.json());
 rec_router.post("/recipe",uploader.single('file'), async(req, res)=>{
     try {
+        console.log(req.body);
         const upload = await cloudinary.v2.uploader.upload(req.file.path);
         const recipies = await RecipeModel.create({
             title:req.body.title,
