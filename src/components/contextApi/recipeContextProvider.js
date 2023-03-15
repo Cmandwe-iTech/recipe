@@ -22,6 +22,8 @@ const RecipeContextProvider = (props)=>{
                 window.localStorage.setItem("token",res.data.token);
                 fetchdata();
                 navigate("/home")
+            }else{
+                alert("register first")
             }
         })
     }
