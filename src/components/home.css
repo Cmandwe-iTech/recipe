@@ -6,8 +6,12 @@
 }
 .header{
     height: 10%;
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
     background: gainsboro;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 20px;
 }
 .searchbar{
     height: 10%;
@@ -35,8 +39,23 @@
     height: 30%;
     width: 20%;
     margin-left: 40px;
+    margin-top: 20px;
 }
 .div1 img{
     height: 90%;
     width: 80%;
+}
+.description-container{
+    display: none;
+}
+.div1:hover .description-container{
+    display: flex;
+    flex-direction: column;
+    background: grey;
+    color: blue;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.div1:hover .image-container{
+    display: none;
 }

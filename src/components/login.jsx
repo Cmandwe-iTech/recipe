@@ -6,8 +6,11 @@ const LogIn = () => {
   const {user, setUser, login} = useContext(recipeContext);
   const [check, setcheck] = useState(false)
   const SubmitHAndler=()=>{
+    console.log("ok");
     if(check){
       login();
+    }else{
+      alert("not ok")
     }
   }
   return (
@@ -21,7 +24,7 @@ const LogIn = () => {
         <label htmlFor="password">Password</label><br/>
         <input type="password" placeholder="enter password here..."className="input" onChange={(e)=>setUser({...user, password:e.target.value})}/>
       </div>
-      <input type="checkbox" onChange={(e)=>setcheck(!check)}/><span>remember me?</span>
+      <input type="checkbox" onChange={()=>setcheck(true)}/><span>remember me?</span>
       <div><button onClick={SubmitHAndler}>Submit</button></div>
       <Link to="/signup"><button>Signup</button></Link>
     </div>
